@@ -6,16 +6,35 @@ interface LayoutProps {
   title?: string;
 }
 
-export function Layout({ children, title }: LayoutProps) {
+export function Layout({ children }: LayoutProps) {
   return (
-    <div className="p-4 min-h-screen">
-      <header className="mb-6 border-b pb-4">
-        <Link to="/" className="text-xl font-semibold text-gray-900">
-          Influencer Search
-        </Link>
-        {title && <h1 className="text-2xl mt-2">{title}</h1>}
+    <div className="min-h-screen bg-gray-50">
+
+      {/* Header */}
+      <header className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-lg">
+
+        <div className="max-w-7xl mx-auto px-6 py-8">
+
+          <Link
+            to="/"
+            className="text-3xl font-bold tracking-wide"
+          >
+            🔍 Influencer Search
+          </Link>
+
+          <p className="mt-3 text-blue-100 max-w-2xl">
+            Discover, search and shortlist the world's most
+            influential creators across Instagram, YouTube and TikTok.
+          </p>
+
+        </div>
+
       </header>
-      <main>{children}</main>
+
+      <main className="max-w-7xl mx-auto px-6 py-8">
+        {children}
+      </main>
+
     </div>
   );
 }

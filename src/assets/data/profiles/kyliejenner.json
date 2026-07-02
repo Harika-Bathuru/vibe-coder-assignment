@@ -1,0 +1,17 @@
+{
+  "data": {
+    "user_profile": {
+      "user_id": "3",
+      "username": "kyliejenner",
+      "fullname": "Kylie Jenner",
+      "picture": "https://i.pravatar.cc/300?img=3",
+      "followers": 398000000,
+      "engagement_rate": 0.018,
+      "avg_views": 62000000,
+      "avg_likes": 8300000,
+      "url": "https://instagram.com/kyliejenner",
+      "description": "Entrepreneur and media personality.",
+      "is_verified": true
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "data": {
+    "user_profile": {
+      "user_id": "8",
+      "username": "beyonce",
+      "fullname": "Beyoncé",
+      "picture": "https://i.pravatar.cc/300?img=8",
+      "followers": 315000000,
+      "engagement_rate": 0.020,
+      "avg_views": 47000000,
+      "avg_likes": 7000000,
+      "url": "https://instagram.com/beyonce",
+      "description": "Singer, songwriter and actress.",
+      "is_verified": true
+    }
+  }
+}

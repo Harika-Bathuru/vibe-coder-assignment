@@ -1,0 +1,17 @@
+{
+  "data": {
+    "user_profile": {
+      "user_id": "5",
+      "username": "therock",
+      "fullname": "Dwayne Johnson",
+      "picture": "https://i.pravatar.cc/300?img=5",
+      "followers": 395000000,
+      "engagement_rate": 0.019,
+      "avg_views": 54000000,
+      "avg_likes": 7800000,
+      "url": "https://instagram.com/therock",
+      "description": "Actor, producer and entrepreneur.",
+      "is_verified": true
+    }
+  }
+}

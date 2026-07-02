@@ -1,0 +1,17 @@
+{
+  "data": {
+    "user_profile": {
+      "user_id": "6",
+      "username": "kimkardashian",
+      "fullname": "Kim Kardashian",
+      "picture": "https://i.pravatar.cc/300?img=6",
+      "followers": 360000000,
+      "engagement_rate": 0.016,
+      "avg_views": 49000000,
+      "avg_likes": 6400000,
+      "url": "https://instagram.com/kimkardashian",
+      "description": "Businesswoman and television personality.",
+      "is_verified": true
+    }
+  }
+}

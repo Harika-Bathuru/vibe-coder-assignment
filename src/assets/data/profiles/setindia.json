@@ -1,0 +1,22 @@
+{
+  "cached": true,
+  "contact": {},
+  "data": {
+    "success": true,
+    "version": "2",
+    "user_profile": {
+      "type": "youtube",
+      "user_id": "UC-lHJZR3Gqxm24_Vd_AJ5Yw",
+      "username": "PewDiePie",
+      "fullname": "PewDiePie",
+      "picture": "https://placehold.co/300x300?text=PewDiePie",
+      "url": "https://www.youtube.com/@PewDiePie",
+      "description": "YouTube Creator",
+      "is_verified": true,
+      "followers": 110000000,
+      "engagement_rate": 0.0013,
+      "avg_views": 2629350,
+      "avg_likes": 144945
+    }
+  }
+}

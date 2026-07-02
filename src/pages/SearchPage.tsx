@@ -1,28 +1,52 @@
 import { useState } from "react";
+import { useSearchParams } from "react-router-dom";
+
+
 import type { Platform } from "@/types";
+
 import { Layout } from "@/components/Layout";
 import { PlatformFilter } from "@/components/PlatformFilter";
 import { ProfileList } from "@/components/ProfileList";
-import { extractProfiles, filterProfiles } from "@/utils/dataHelpers";
+import { SelectedProfiles } from "@/components/SelectedProfiles";
+
+import {
+  extractProfiles,
+  filterProfiles,
+} from "@/utils/dataHelpers";
 
 export function SearchPage() {
-  const [platform, setPlatform] = useState<Platform>("instagram");
-  const [searchQuery, setSearchQuery] = useState("");
-  const [clickCount, setClickCount] = useState(0);
+  const [searchParams] = useSearchParams();
 
-  const allProfiles = extractProfiles(platform);
-  const filtered = filterProfiles(allProfiles, searchQuery);
+  const initialPlatform =
+    (searchParams.get("platform") as Platform) ??
+    "instagram";
 
-  const handleProfileClick = (username: string) => {
-    setClickCount(clickCount + 1);
-    console.log("Clicked profile:", username, "total clicks:", clickCount);
-  };
+  const [platform, setPlatform] =
+    useState<Platform>(initialPlatform);
+
+  const [searchQuery, setSearchQuery] =
+    useState("");
+
+  const allProfiles =
+    extractProfiles(platform);
+
+  const filtered =
+    filterProfiles(allProfiles, searchQuery);
 
   return (
-    <Layout title="Find Influencers">
-      <p className="text-gray-500 mb-4 text-sm">
-        Browse top creators across social platforms
-      </p>
+    <Layout>
+
+      {/* <div className="mb-8">
+        <h2 className="text-3xl font-bold">
+          Discover Influencers
+        </h2>
+
+        <p className="text-gray-500 mt-2">
+          Search and shortlist creators across
+          Instagram, YouTube and TikTok.
+        </p>
+      </div> */}
+      
 
       <PlatformFilter
         selected={platform}
@@ -34,16 +58,88 @@ export function SearchPage() {
         onSearchChange={setSearchQuery}
       />
 
-      <p className="text-xs text-gray-400 mb-2">
-        Showing {filtered.length} of {allProfiles.length} on {platform}
-      </p>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
 
-      <ProfileList
-        profiles={filtered}
-        platform={platform}
-        searchQuery={searchQuery}
-        onProfileClick={handleProfileClick}
-      />
+  <div className="bg-white rounded-2xl shadow-md hover:shadow-xl transition p-6">
+
+    <div className="text-4xl mb-3">
+      👥
+    </div>
+
+    <p className="text-gray-500">
+      Showing Results
+    </p>
+
+    <h2 className="text-4xl font-bold text-blue-600 mt-2">
+      {filtered.length}
+    </h2>
+
+    <p className="text-sm text-gray-400 mt-2">
+      Creator{filtered.length !== 1 ? "s" : ""}
+    </p>
+
+  </div>
+
+  <div className="bg-white rounded-2xl shadow-md hover:shadow-xl transition p-6">
+
+    <div className="text-4xl mb-3">
+      📊
+    </div>
+
+    <p className="text-gray-500">
+      Total Profiles
+    </p>
+
+    <h2 className="text-4xl font-bold mt-2">
+      {allProfiles.length}
+    </h2>
+
+    <p className="text-sm text-gray-400 mt-2">
+      Profiles
+    </p>
+
+  </div>
+
+  <div className="bg-white rounded-2xl shadow-md hover:shadow-xl transition p-6">
+
+    <div className="text-4xl mb-3">
+      📱
+    </div>
+
+    <p className="text-gray-500">
+      Current Platform
+    </p>
+
+    <h2 className="capitalize text-2xl font-bold text-blue-600 mt-2">
+      {platform}
+    </h2>
+
+    <p className="text-sm text-gray-400 mt-2">
+      Current Selection
+    </p>
+
+  </div>
+
+</div>
+
+      <div className="grid grid-cols-1 xl:grid-cols-3 gap-8">
+
+        <div className="xl:col-span-2">
+
+          <ProfileList
+            profiles={filtered}
+            platform={platform}
+            // searchQuery={searchQuery}
+          />
+
+        </div>
+
+        <SelectedProfiles
+          platform={platform}
+        />
+
+      </div>
+
     </Layout>
   );
 }

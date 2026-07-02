@@ -1,0 +1,25 @@
+{
+  "cached": true,
+  "contact": {
+    "showEmail": false,
+    "showPhone": false
+  },
+  "data": {
+    "success": true,
+    "version": "2",
+    "user_profile": {
+      "type": "tiktok",
+      "user_id": "1003",
+      "username": "charlidamelio",
+      "fullname": "Charli D'Amelio",
+      "picture": "https://placehold.co/200x200",
+      "description": "TikTok Star",
+      "url": "https://www.tiktok.com/@charlidamelio",
+      "followers": 157000000,
+      "engagement_rate": 0.082,
+      "avg_views": 45000000,
+      "avg_likes": 5200000,
+      "is_verified": true
+    }
+  }
+}

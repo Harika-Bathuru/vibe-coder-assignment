@@ -1,0 +1,17 @@
+{
+  "data": {
+    "user_profile": {
+      "user_id": "7",
+      "username": "arianagrande",
+      "fullname": "Ariana Grande",
+      "picture": "https://i.pravatar.cc/300?img=7",
+      "followers": 375000000,
+      "engagement_rate": 0.023,
+      "avg_views": 58000000,
+      "avg_likes": 8900000,
+      "url": "https://instagram.com/arianagrande",
+      "description": "Singer and actress.",
+      "is_verified": true
+    }
+  }
+}

@@ -1,21 +1,31 @@
-import type { ProfileDetailResponse } from "@/types";
-
-const profileModules = import.meta.glob<ProfileDetailResponse>(
+// import type { ProfileDetailResponse } from "@/types";
+import type { Platform, ProfileDetailResponse } from "@/types";
+const profileModules = import.meta.glob(
   "../assets/data/profiles/*.json"
 );
 
 export async function loadProfileByUsername(
-  username: string
+  username: string,
+  _platform: Platform
 ): Promise<ProfileDetailResponse | null> {
-  const path = `../assets/data/profiles/${username}.json`;
-  const loader = profileModules[path];
 
-  if (!loader) {
-    return null;
+  for (const path in profileModules) {
+
+    const loader = profileModules[path];
+
+    const result = await loader();
+
+    const data =
+      (result as { default?: ProfileDetailResponse }).default ??
+      (result as ProfileDetailResponse);
+
+    if (
+      data?.data?.user_profile?.username?.toLowerCase() ===
+      username.toLowerCase()
+    ) {
+      return data;
+    }
   }
 
-  const result = await loader();
-  const data =
-    (result as { default?: ProfileDetailResponse }).default ?? result;
-  return data as ProfileDetailResponse;
+  return null;
 }

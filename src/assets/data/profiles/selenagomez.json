@@ -1,0 +1,17 @@
+{
+  "data": {
+    "user_profile": {
+      "user_id": "4",
+      "username": "selenagomez",
+      "fullname": "Selena Gomez",
+      "picture": "https://i.pravatar.cc/300?img=4",
+      "followers": 420000000,
+      "engagement_rate": 0.021,
+      "avg_views": 60000000,
+      "avg_likes": 9100000,
+      "url": "https://instagram.com/selenagomez",
+      "description": "Singer and actress.",
+      "is_verified": true
+    }
+  }
+}

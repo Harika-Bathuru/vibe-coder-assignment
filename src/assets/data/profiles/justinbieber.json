@@ -1,0 +1,17 @@
+{
+  "data": {
+    "user_profile": {
+      "user_id": "10",
+      "username": "justinbieber",
+      "fullname": "Justin Bieber",
+      "picture": "https://i.pravatar.cc/300?img=10",
+      "followers": 295000000,
+      "engagement_rate": 0.018,
+      "avg_views": 42000000,
+      "avg_likes": 5600000,
+      "url": "https://instagram.com/justinbieber",
+      "description": "Singer and songwriter.",
+      "is_verified": true
+    }
+  }
+}

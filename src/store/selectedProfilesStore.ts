@@ -1,15 +1,22 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
-import type { UserProfileSummary } from "@/types";
+import type { Platform, UserProfileSummary } from "@/types";
+
+type SelectedProfile = UserProfileSummary & {
+  platform: Platform;
+};
 
 interface SelectedProfilesStore {
-  selectedProfiles: UserProfileSummary[];
+  selectedProfiles: SelectedProfile[];
 
-  addProfile: (profile: UserProfileSummary) => void;
+  addProfile: (
+    profile: UserProfileSummary,
+    platform: Platform
+  ) => void;
 
   removeProfile: (userId: string) => void;
 
-  isSelected: (userId: string) => boolean;
+  isSelected: (userId: string, platform: Platform) => boolean;
 }
 
 export const useSelectedProfilesStore = create<SelectedProfilesStore>()(
@@ -17,15 +24,23 @@ export const useSelectedProfilesStore = create<SelectedProfilesStore>()(
     (set, get) => ({
       selectedProfiles: [],
 
-      addProfile: (profile) => {
+      addProfile: (profile, platform) => {
         const exists = get().selectedProfiles.some(
-          (p) => p.user_id === profile.user_id
+          (p) =>
+            p.user_id === profile.user_id &&
+            p.platform === platform
         );
 
         if (exists) return;
 
         set({
-          selectedProfiles: [...get().selectedProfiles, profile],
+          selectedProfiles: [
+            ...get().selectedProfiles,
+            {
+              ...profile,
+              platform,
+            },
+          ],
         });
       },
 
@@ -37,9 +52,11 @@ export const useSelectedProfilesStore = create<SelectedProfilesStore>()(
         });
       },
 
-      isSelected: (userId) => {
+      isSelected: (userId, platform) => {
         return get().selectedProfiles.some(
-          (p) => p.user_id === userId
+          (p) =>
+            p.user_id === userId &&
+            p.platform === platform
         );
       },
     }),

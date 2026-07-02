@@ -1,0 +1,17 @@
+{
+  "data": {
+    "user_profile": {
+      "user_id": "2",
+      "username": "leomessi",
+      "fullname": "Lionel Messi",
+      "picture": "https://i.pravatar.cc/300?img=2",
+      "followers": 505000000,
+      "engagement_rate": 0.022,
+      "avg_views": 83000000,
+      "avg_likes": 12300000,
+      "url": "https://instagram.com/leomessi",
+      "description": "Football player.",
+      "is_verified": true
+    }
+  }
+}
